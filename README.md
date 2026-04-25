@@ -34,6 +34,8 @@ Summary CSV: [unoptimized-summary.csv](Jmeter/Assets/Unoptimized%20results/csv/u
 
 Profiler snapshot: [TutorialApplication-before-optimization.jfr](Jmeter/Assets/Unoptimized%20results/profiling/TutorialApplication-before-optimization.jfr)
 
+Profiler snapshot for unoptimized `/all-student-name`: [all-student-name-before-optimization.jfr](Jmeter/Assets/Unoptimized%20results/profiling/all-student-name-before-optimization.jfr)
+
 ### Screenshots
 
 SUMMARY `/all-student`
@@ -65,3 +67,26 @@ RAW RESULT `/highest-gpa`
 ## Optimized JMeter Results
 
 Profiler snapshot for optimized `/all-student`: [all-student-after-optimization.jfr](Jmeter/Assets/Optimized%20results/profiling/all-student-after-optimization.jfr)
+
+Profiler snapshot for optimized `/all-student-name`: [all-student-name-after-optimization.jfr](Jmeter/Assets/Optimized%20results/profiling/all-student-name-after-optimization.jfr)
+
+| Endpoint | Method | Before | After | Decrease | Modified |
+| --- | --- | ---: | ---: | ---: | --- |
+| `/all-student` | `getAllStudentsWithCourses()` | 119620 ms | 372 ms | 99.69% | Replaced per-student repository calls with one fetch-join query that loads `StudentCourse`, `Student`, and `Course` together. |
+| `/all-student-name` | `joinStudentNames()` | 4694 ms | 107 ms | 97.72% | Replaced repeated `String` concatenation with `StringBuilder`. |
+
+Optimized summary CSVs:
+[all-student-summary.csv](Jmeter/Assets/Optimized%20results/csv/all-student-summary.csv),
+[all-student-name-summary.csv](Jmeter/Assets/Optimized%20results/csv/all-student-name-summary.csv)
+
+### `/all-student` Optimization
+
+Before optimization, `getAllStudentsWithCourses()` loaded all students, then queried student-course rows once per student. With 20,000 students, this produced an N+1 query pattern and made the endpoint very slow.
+
+After optimization, `StudentCourseRepository.findAllWithStudentAndCourse()` uses a fetch join to retrieve the student-course rows with their related student and course data in one query.
+
+### `/all-student-name` Optimization
+
+Before optimization, `joinStudentNames()` loaded all students and repeatedly appended to an immutable `String` inside a loop.
+
+After optimization, it uses `StringBuilder` so the string buffer is reused while building the response.
