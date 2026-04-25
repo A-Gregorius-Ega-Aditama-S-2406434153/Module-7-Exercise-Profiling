@@ -1,0 +1,2 @@
+"Label","Samples","AverageMs","MinMs","MaxMs","StdDev","ErrorPercent","ThroughputPerSec","AvgBytes","RawFile"
+"highest-gpa","10","13","6","30","6.2","0.000%","11.65501","279","raw/highest-gpa.jtl"

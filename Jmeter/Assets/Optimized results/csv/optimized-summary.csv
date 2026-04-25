@@ -1,0 +1,4 @@
+"Label","Samples","AverageMs","MinMs","MaxMs","StdDev","ErrorPercent","ThroughputPerSec","AvgBytes","RawFile"
+"all-student request","10","364","238","583","106.21","0.000%","7.08215","2801577","raw/all-student.jtl"
+"all-student-name","10","83","59","124","18.94","0.000%","10.62699","312661","raw/all-student-name.jtl"
+"highest-gpa","10","13","6","30","6.2","0.000%","11.65501","279","raw/highest-gpa.jtl"
