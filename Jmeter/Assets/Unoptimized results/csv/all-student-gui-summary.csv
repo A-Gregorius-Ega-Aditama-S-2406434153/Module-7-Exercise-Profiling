@@ -1,0 +1,3 @@
+Label,# Samples,Average,Min,Max,Std. Dev.,Error %,Throughput,Received KB/sec,Sent KB/sec,Avg. Bytes
+all-student request,10,80593,80355,80773,119.38,0.000%,.12255,335.29,0.02,2801577.0
+TOTAL,10,80593,80355,80773,119.38,0.000%,.12255,335.29,0.02,2801577.0

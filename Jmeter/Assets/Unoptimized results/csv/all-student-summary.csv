@@ -1,0 +1,2 @@
+"Label","Samples","AverageMs","MinMs","MaxMs","StdDev","ErrorPercent","ThroughputPerSec","AvgBytes","RawFile"
+"all-student request","10","119620","117211","120588","1183.8","0.000%","0.08253","2801577","raw/all-student.jtl"
