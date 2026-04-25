@@ -32,6 +32,8 @@ The raw JMeter logs, generated reports, and summary CSV files are saved under `J
 
 Summary CSV: [unoptimized-summary.csv](Jmeter/Assets/Unoptimized%20results/csv/unoptimized-summary.csv)
 
+Profiler snapshot: [TutorialApplication-before-optimization.jfr](Jmeter/Assets/Unoptimized%20results/profiling/TutorialApplication-before-optimization.jfr)
+
 ### Screenshots
 
 SUMMARY `/all-student`
@@ -59,3 +61,7 @@ RAW RESULT `/all-student-name`
 RAW RESULT `/highest-gpa`
 
 ![Unoptimized highest-gpa raw results](Jmeter/Assets/Unoptimized%20results/screenshots/highest-gpa-raw-results.png)
+
+## Optimized JMeter Results
+
+Profiler snapshot for optimized `/all-student`: [all-student-after-optimization.jfr](Jmeter/Assets/Optimized%20results/profiling/all-student-after-optimization.jfr)
